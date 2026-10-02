@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marias Surf Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3fbf7; --ink:#12394a; --muted:#4a6b78; --sea:#2f8fc4; --green:#a9dfc2;
+  --hero:#5fb8e8; --herotext:#0f3345; --herop:#173f50; --card:#ffffff; --line:#d3e7e2;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b2530;--ink:#e8f3f1;--muted:#9bb8bd;--sea:#6bbfe0;--hero:#143c4e;--herotext:#e8f3f1;--herop:#b9d3d6;--card:#12313d;--line:#244a58}}
+:root[data-theme="dark"]{--bg:#0b2530;--ink:#e8f3f1;--muted:#9bb8bd;--sea:#6bbfe0;--hero:#143c4e;--herotext:#e8f3f1;--herop:#b9d3d6;--card:#12313d;--line:#244a58}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;font-size:17px}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em}
+nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:15px}
+nav a:hover{text-decoration:underline}
+.btn{display:inline-block;background:var(--green);color:#12394a;font-weight:600;padding:14px 26px;border-radius:999px;text-decoration:none;border:0;font:inherit;font-weight:600;cursor:pointer}
+.btn:hover{filter:brightness(1.05)}
+:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+.hero{background:var(--hero);color:var(--herotext);position:relative;overflow:hidden}
+.hero .wrap{padding-bottom:150px}
+.hero nav a{color:var(--herotext)}
+h1{font-size:clamp(44px,9vw,96px);line-height:.98;letter-spacing:-.04em;font-weight:800;margin:56px 0 24px;max-width:11ch}
+.hero p{font-size:19px;max-width:46ch;color:var(--herop);margin:0 0 32px}
+.waves{position:absolute;left:0;right:0;bottom:-1px;height:130px;width:200%;animation:drift 22s linear infinite}
+.waves.b{animation-duration:34s;animation-direction:reverse;opacity:.55;height:100px}
+@keyframes drift{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.waves{animation:none}}
+section{padding:80px 0}
+h2{font-size:clamp(30px,5vw,44px);letter-spacing:-.03em;line-height:1.1;margin:0 0 12px}
+.lead{color:var(--muted);max-width:52ch;margin:0 0 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.card h3{margin:0 0 6px;font-size:22px;letter-spacing:-.02em}
+.card p{margin:0 0 18px;color:var(--muted)}
+.price{font-weight:800;font-size:28px}
+.price small{font-weight:400;font-size:15px;color:var(--muted)}
+.card.hot{background:var(--green);color:#12394a;border-color:var(--green)}
+.card.hot p,.card.hot .price small{color:#2f5a52}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;counter-reset:s}
+.steps div{counter-increment:s;border-top:3px solid var(--sea);padding-top:16px}
+.steps div::before{content:counter(s);font-weight:800;font-size:34px;color:var(--sea)}
+.steps h3{margin:4px 0;font-size:19px}
+.steps p{margin:0;color:var(--muted)}
+.book{background:var(--hero);color:var(--herotext);border-radius:28px;padding:48px 32px}
+.book p{color:var(--herop)}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:24px}
+input,select{padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;width:100%}
+.ok{margin-top:16px;font-weight:600;color:var(--herotext)}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:start}
+.about ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.about li{border-left:3px solid var(--green);padding-left:16px}
+.about li strong{display:block;font-size:18px}
+.about li span{color:var(--muted)}
+.about p{color:var(--muted);margin:0 0 16px}
+.btn2{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:12px 24px}
+.find{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:center}
+.find .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.find p{color:var(--muted);margin:0 0 8px}
+.mapart{width:100%;height:auto;border-radius:24px;border:1px solid var(--line);display:block}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px}
+@media (max-width:600px){nav ul{display:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#">Marias Surf Academy</a>
+      <ul><li><a href="#lessons">Lessons</a></li><li><a href="#how">How it works</a></li><li><a href="#about">About us</a></li><li><a href="#find">Find us</a></li><li><a href="#book">Book</a></li></ul>
+    </nav>
+    <h1>Surf and Score with us</h1>
+    <p>Surf lessons at Marias Beach in Rincón, Puerto Rico, for every age and level. Boards and certified coaches included.</p>
+    <a class="btn" href="#book">Book a lesson</a>
+  </div>
+  <svg class="waves b" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true"><path fill="var(--green)" d="M0 50 Q150 0 300 50 T600 50 T900 50 T1200 50 V100 H0Z"/></svg>
+  <svg class="waves" viewBox="0 0 1200 130" preserveAspectRatio="none" aria-hidden="true"><path fill="var(--bg)" d="M0 70 Q150 20 300 70 T600 70 T900 70 T1200 70 V130 H0Z"/></svg>
+</header>
+
+<main>
+<section id="lessons"><div class="wrap">
+  <h2>Lesson prices</h2>
+  <p class="lead">The more friends you bring, the less each person pays. All lessons include a board and a certified coach.</p>
+  <div class="grid">
+    <div class="card"><h3>Private</h3><p>One on one with your coach, with full attention on you.</p><div class="price">$110 <small>per person</small></div></div>
+    <div class="card hot"><h3>Two people</h3><p>Come with a friend, partner or family member and learn together.</p><div class="price">$90 <small>per person</small></div></div>
+    <div class="card"><h3>Groups of 3 or more</h3><p>Our best rate for families, friends and teams.</p><div class="price">$85 <small>per person</small></div></div>
+  </div>
+</div></section>
+
+<section id="how" style="padding-top:0"><div class="wrap">
+  <h2>How a lesson works</h2>
+  <p class="lead">Every lesson is at Marias Beach in Rincón and lasts about 2 hours, depending on conditions.</p>
+  <div class="steps">
+    <div><h3>Get your board</h3><p>Your board is included in the price.</p></div>
+    <div><h3>Land lesson</h3><p>About 20 minutes on the beach for a land lesson and wave orientation.</p></div>
+    <div><h3>Catch waves</h3><p>1 to 1.5 hours in the water catching waves with your instructors.</p></div>
+  </div>
+  <p class="lead" style="margin:32px 0 0">The number of instructors depends on the conditions and how many people are in the lesson.</p>
+</div></section>
+
+<section id="about" style="padding-top:0"><div class="wrap about">
+  <div>
+    <h2>Local surf coaches, born to this water</h2>
+    <p>Marias Surf Academy is a local school in Rincón. Every lesson is at Marias Beach, and we know its waves and conditions well.</p>
+    <p>Our water men and women are with you from the first paddle to the last wave.</p>
+  </div>
+  <ul>
+    <li><strong>CPR and lifeguard certified</strong><span>Every coach is trained to respond in the water and on the beach.</span></li>
+    <li><strong>Lessons for every age</strong><span>Children, beginners, advanced surfers and older adults. We adapt the pace and the waves to you.</span></li>
+    <li><strong>Attention on you</strong><span>Small groups and private coaching, so your coach is always watching you.</span></li>
+  </ul>
+</div></section>
+
+<section id="find" style="padding-top:0"><div class="wrap find">
+  <div>
+    <h2>Find us at Marias Beach</h2>
+    <p>Marias Beach, Rincón, Puerto Rico.</p>
+    <p>All of our lessons meet here, so you always know where to find your coach.</p>
+    <p><strong>Where to meet:</strong> once you make it past the parking, we are on the right-hand side.</p>
+    <div class="btns">
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Marias+Beach+Rincon+Puerto+Rico" target="_blank" rel="noopener">Get directions</a>
+      <a class="btn btn2" href="https://www.google.com/maps/search/?api=1&amp;query=Marias+Beach+Rincon+Puerto+Rico" target="_blank" rel="noopener">Open in Google Maps</a>
+    </div>
+  </div>
+  <svg class="mapart" viewBox="0 0 400 300" role="img" aria-label="Illustration of Marias Beach on the coast of Rincón">
+    <rect width="400" height="300" fill="var(--sea)"/>
+    <path d="M0 40 Q60 20 120 40 T240 40 T400 40" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3"/>
+    <path d="M0 80 Q60 60 120 80 T240 80 T400 80" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="3"/>
+    <path d="M0 150 Q100 120 200 160 T400 140 V300 H0Z" fill="#ead9b4"/>
+    <path d="M0 230 Q120 200 240 235 T400 220 V300 H0Z" fill="#a9dfc2"/>
+    <g transform="translate(200 120)"><path d="M0 0 C-22 -26 -22 -52 0 -52 C22 -52 22 -26 0 0Z" fill="#ffffff" stroke="#12394a" stroke-width="3"/><circle cx="0" cy="-36" r="7" fill="#12394a"/></g>
+    <text x="200" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#12394a">Marias Beach</text>
+  </svg>
+</div></section>
+
+<section id="book" style="padding-top:0"><div class="wrap">
+  <div class="book">
+    <h2>Book a lesson</h2>
+    <p>Send us an email with the lesson you want, how many people are coming and the day you would like to surf. We will reply to confirm.</p>
+    <div class="btns" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+      <a class="btn" target="_blank" rel="noopener" href="mailto:surfesbueno@mariassurfacademy-com.org?subject=Surf%20lesson%20request&amp;body=Hi%20Marias%20Surf%20Academy%2C%0A%0ALesson%20type%20(Private%2C%20Two%20people%2C%20or%20Group%20of%203%20or%20more)%3A%0ANumber%20of%20people%3A%0ANames%20and%20ages%3A%0APreferred%20date%3A%0A%0AThank%20you!">Book by email</a>
+      <button class="btn btn2" id="cp" type="button">Copy email address</button>
+    </div>
+    <p style="margin-top:20px">Or write to us at <a target="_blank" rel="noopener" href="mailto:surfesbueno@mariassurfacademy-com.org" style="user-select:all">surfesbueno@mariassurfacademy-com.org</a></p>
+    <p id="cpm" role="status" style="margin-top:8px;font-weight:600"></p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© Marias Surf Academy, Marias Beach, Rincón, Puerto Rico. Open daily, 7am to 5pm.</div></footer>
+<script>
+document.getElementById('cp').addEventListener('click',function(){
+  var m='surfesbueno@mariassurfacademy-com.org',o=document.getElementById('cpm');
+  function ok(){o.textContent='Email address copied.';}
+  function fb(){try{var t=document.createElement('textarea');t.value=m;document.body.appendChild(t);t.select();var r=document.execCommand('copy');document.body.removeChild(t);o.textContent=r?'Email address copied.':'Press and hold the address above to copy it.';}catch(e){o.textContent='Press and hold the address above to copy it.';}}
+  try{navigator.clipboard.writeText(m).then(ok,fb);}catch(e){fb();}
+});
+</script>
+</body>
+</html>
