@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mariassurfacademy-com.org/sitemap.xml
